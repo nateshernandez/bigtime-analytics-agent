@@ -1,0 +1,33 @@
+{
+  "name": "bigtime-analytics-agent",
+  "version": "0.1.0",
+  "description": "BigTime Analytics Agent",
+  "main": "index.js",
+  "scripts": {
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start"
+  },
+  "author": "BigTime Development Team",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "@mastra/core": "^1.1.0",
+    "@mastra/evals": "^1.0.1",
+    "@mastra/libsql": "^1.1.0",
+    "@mastra/loggers": "^1.0.1",
+    "@mastra/memory": "^1.0.1",
+    "@mastra/observability": "^1.1.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "mastra": "^1.1.0",
+    "typescript": "^5.9.3"
+  }
+}
+
