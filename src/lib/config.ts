@@ -7,6 +7,7 @@ function required(name: string): string {
 }
 
 export const config = {
+  isDevelopment: process.env.MASTRA_DEV === "true",
   db: {
     connectionString: required("DB_CONNECTION_STRING"),
   },
@@ -17,5 +18,4 @@ export const config = {
     catalog: required("DATABRICKS_CATALOG"),
     schema: required("DATABRICKS_SCHEMA"),
   },
-  usePersistentStorage: required("USE_PERSISTENT_STORAGE"),
 } as const;

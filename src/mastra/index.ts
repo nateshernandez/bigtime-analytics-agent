@@ -14,7 +14,7 @@ export const mastra = new Mastra({
   agents: { analyticsAgent },
   storage: new LibSQLStore({
     id: "mastra-storage",
-    url: config.usePersistentStorage ? "file:./mastra.db" : ":memory:",
+    url: config.isDevelopment ? ":memory:" : "file:./mastra.db",
   }),
   logger: new PinoLogger({
     name: "Mastra",

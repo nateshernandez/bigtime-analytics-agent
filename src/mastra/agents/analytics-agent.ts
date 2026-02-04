@@ -1,6 +1,7 @@
 import { executeOperationalQueryTool } from "@/mastra/tools/execute-operational-query-tool";
 import { searchOperationalSchemaTool } from "@/mastra/tools/search-operational-schema-tool";
 import { Agent } from "@mastra/core/agent";
+import { gateway } from "ai";
 
 const instructions = {
   role: "system" as const,
@@ -23,18 +24,13 @@ const instructions = {
   When presenting numbers: format currency with appropriate symbols and decimals; show percentages as "X.X%"; use commas for large integers. Prefer brief summaries and bullet points for many rows; call out key trends or anomalies when relevant.
 </output>
 `.trim(),
-  providerOptions: {
-    anthropic: {
-      cacheControl: { type: "ephemeral" as const },
-    },
-  },
 };
 
 export const analyticsAgent = new Agent({
   id: "analytics-agent",
   name: "Analytics Agent",
   instructions,
-  model: "anthropic/claude-sonnet-4-20250514",
+  model: gateway("anthropic/claude-sonnet-4.5"),
   tools: {
     searchOperationalSchemaTool,
     executeOperationalQueryTool,
