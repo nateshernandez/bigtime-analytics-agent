@@ -17,4 +17,5 @@ export const config = {
     catalog: required("DATABRICKS_CATALOG"),
     schema: required("DATABRICKS_SCHEMA"),
   },
+  usePersistentStorage: required("USE_PERSISTENT_STORAGE"),
 } as const;

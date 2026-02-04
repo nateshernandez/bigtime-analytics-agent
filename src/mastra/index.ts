@@ -1,3 +1,4 @@
+import { config } from "@/lib/config";
 import { analyticsAgent } from "@/mastra/agents/analytics-agent";
 import { Mastra } from "@mastra/core/mastra";
 import { LibSQLStore } from "@mastra/libsql";
@@ -13,8 +14,7 @@ export const mastra = new Mastra({
   agents: { analyticsAgent },
   storage: new LibSQLStore({
     id: "mastra-storage",
-    // stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db
-    url: ":memory:",
+    url: config.usePersistentStorage ? "file:./mastra.db" : ":memory:",
   }),
   logger: new PinoLogger({
     name: "Mastra",
