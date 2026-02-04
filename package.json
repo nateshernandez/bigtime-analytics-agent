@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "mastra dev",
     "build": "mastra build",
-    "start": "mastra start"
+    "start": "mastra start",
+    "populate-embeddings": "tsx scripts/populate-embeddings.ts"
   },
   "author": "BigTime Development Team",
   "license": "ISC",
@@ -16,18 +17,27 @@
     "node": ">=22.13.0"
   },
   "dependencies": {
+    "@databricks/sql": "^1.12.0",
     "@mastra/core": "^1.1.0",
     "@mastra/evals": "^1.0.1",
     "@mastra/libsql": "^1.1.0",
     "@mastra/loggers": "^1.0.1",
     "@mastra/memory": "^1.0.1",
     "@mastra/observability": "^1.1.0",
+    "ai": "^6.0.69",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
+    "pg": "^8.18.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/node": "^25.2.0",
+    "@types/pg": "^8.16.0",
+    "drizzle-kit": "^0.31.8",
     "mastra": "^1.1.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
-

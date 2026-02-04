@@ -1,27 +1,51 @@
-# bigtime-analytics-agent
+# BigTime Analytics Agent POC
 
-Welcome to your new [Mastra](https://mastra.ai/) project! We're excited to see what you'll build.
+## ⚡️ Requirements
 
-## Getting Started
+- [Docker Desktop](https://docs.docker.com/desktop/)
+- [Node.js](https://github.com/Schniz/fnm)
+- [pnpm](https://pnpm.io/)
 
-Start the development server:
+## 🚀 Getting Started
 
-```shell
-pnpm run dev
-```
+1. Copy the environment template and configure your variables.
 
-Open [http://localhost:4111](http://localhost:4111) in your browser to access [Mastra Studio](https://mastra.ai/docs/getting-started/studio). It provides an interactive UI for building and testing your agents, along with a REST API that exposes your Mastra application as a local service. This lets you start building without worrying about integration right away.
+   ```bash
+   cp .env.example .env
+   ```
 
-You can start editing files inside the `src/mastra` directory. The development server will automatically reload whenever you make changes.
+2. Start the local database.
 
-## Learn more
+   ```bash
+   docker compose up -d
+   ```
 
-To learn more about Mastra, visit our [documentation](https://mastra.ai/docs/). Your bootstrapped project includes example code for [agents](https://mastra.ai/docs/agents/overview), [tools](https://mastra.ai/docs/agents/using-tools), [workflows](https://mastra.ai/docs/workflows/overview), [scorers](https://mastra.ai/docs/evals/overview), and [observability](https://mastra.ai/docs/observability/overview).
+3. Run migrations.
 
-If you're new to AI agents, check out our [course](https://mastra.ai/course) and [YouTube videos](https://youtube.com/@mastra-ai). You can also join our [Discord](https://discord.gg/BTYqqHKUrf) community to get help and share your projects.
+   ```bash
+   pnpm exec drizzle-kit migrate
+   ```
 
-## Deploy on Mastra Cloud
+4. Install dependencies.
 
-[Mastra Cloud](https://cloud.mastra.ai/) gives you a serverless agent environment with atomic deployments. Access your agents from anywhere and monitor performance. Make sure they don't go off the rails with evals and tracing.
+   ```bash
+   pnpm install
+   ```
 
-Check out the [deployment guide](https://mastra.ai/docs/deployment/overview) for more details.
+5. Populate operational schema embeddings.
+
+   ```bash
+   pnpm run populate-embeddings
+   ```
+
+6. Start the dev server.
+
+   ```bash
+   pnpm run dev
+   ```
+
+The application will be available at `http://localhost:4111`.
+
+## 🤝 Contributing
+
+This project adheres to the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for commit messages.
