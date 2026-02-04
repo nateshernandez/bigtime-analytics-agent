@@ -29,6 +29,7 @@
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
     "lz4": "^0.6.5",
+    "open": "^11.0.0",
     "pg": "^8.18.0",
     "readable-stream": "^4.7.0",
     "utf-8-validate": "^6.0.6",

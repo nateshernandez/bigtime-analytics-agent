@@ -32,7 +32,14 @@ const observability = new Observability({
 });
 
 const bundlerConfig: NonNullable<Config["bundler"]> = {
-  externals: ["pg", "lz4", "bufferutil", "utf-8-validate", "readable-stream"],
+  externals: [
+    "pg",
+    "lz4",
+    "bufferutil",
+    "utf-8-validate",
+    "readable-stream",
+    "open",
+  ],
 };
 
 export const mastra = new Mastra({
